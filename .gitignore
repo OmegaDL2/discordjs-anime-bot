@@ -1,0 +1,4 @@
+/.VS
+/.VSCODE
+/node_modules
+.env
