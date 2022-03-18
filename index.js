@@ -7,10 +7,8 @@ function GetTime(){     // Function to get the day/month/year --- hour:minute:se
     return Time.getDate() + "/" + (Time.getMonth() + 1) + "/" + Time.getFullYear() + " --- " + Time.getHours() + ":" + Time.getMinutes() + ":" + Time.getSeconds() + "." + Time.getMilliseconds();
 };
 
-client.once("ready", () => {
-    console.log("Bot is on ready " + GetTime());
-    client.user.setActivity("being programed", {type: "WATCHING"});
-});
+require("./Handlers/Events")(client);
+
 
 
 client.login(process.env.TOKEN);
