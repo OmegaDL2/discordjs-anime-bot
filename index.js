@@ -1,3 +1,5 @@
+const { Collection } = require('discord.js');
+
 const { Client } = new require("discord.js");
 const client = new Client({intents: 32767});
 require('dotenv').config();
@@ -8,6 +10,8 @@ module.exports = {   // Function to get the [day/month/year --- hour:minute:seco
         return "     [" + Time.getDate() + "/" + (Time.getMonth() + 1) + "/" + Time.getFullYear() + " --- " + Time.getHours() + ":" + Time.getMinutes() + ":" + Time.getSeconds() + "." + Time.getMilliseconds() + " | " + Time.getTime() + "]";    
     },
 };
+
+client.commands = new Collection();
 
 require("./Handlers/Events")(client);
 
