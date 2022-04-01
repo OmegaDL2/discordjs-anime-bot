@@ -1,10 +1,10 @@
-const { Perms } = require("../Validation/Permissions.js");
+const { Perms } = require("../Validations/Permissions");
 const { Client } = require("discord.js");
 const { promisify } = require("util");
 const { glob } = require("glob");
 const PG = promisify(glob);
 const Ascii = require("ascii-table");
-var tools = require('./index');
+var tools = require('../index.js');
 const { resourceUsage } = require("process");
 
 /**
@@ -33,7 +33,7 @@ module.exports = async (client) => {
         }
 
         client.commands.set(command.name, command);
-        commandsArray.push(command);
+        CommandsArray.push(command);
 
         await Table.addRow(command.name, "☑️ SUCCESSFUL");
 
@@ -63,8 +63,10 @@ module.exports = async (client) => {
                     return [...a, {id: r.id, type:"ROLE", permission:true}]
                 }, []);
 
-                // !https://youtu.be/rqRb8YJ4T5Q?t=589 
+                return [...accumulator, {id: r.id, permissions}]; 
             });
+            
+            await MainGuild.commands.permissions.set({fullPermissions});
         });
     });
 };

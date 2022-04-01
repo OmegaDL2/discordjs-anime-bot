@@ -14,6 +14,7 @@ module.exports = {   // Function to get the [day/month/year --- hour:minute:seco
 client.commands = new Collection();
 
 require("./Handlers/Events")(client);
+require("./Handlers/Commands")(client);
 
 
 
