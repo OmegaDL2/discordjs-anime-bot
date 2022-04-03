@@ -10,7 +10,7 @@ module.exports = {
      */
     async execute(interaction, client) {
         if(interaction.isCommand()) {
-            const command = client.commands.get(interaction.command.name);
+            const command = client.commands.get(interaction.commandName);
             if(!command) return interaction.reply({embeds: [
                 new MessageEmbed()
                 .setColor("Red")
